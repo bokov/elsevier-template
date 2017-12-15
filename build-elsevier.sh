@@ -17,5 +17,5 @@ $ENGINE $FILENAME
 texcount -sub=section -html $FILENAME.tex > $WORDCOUNT
 
 # Display document and wordcount
-acroread $FILENAME.pdf
+#acroread $FILENAME.pdf
 firefox $WORDCOUNT
