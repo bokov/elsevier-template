@@ -81,7 +81,11 @@ Powertrip is designed to allow multiple 'competing' analysis modules to evaluate
 
 ## Statistics
 
+We used the Weibull ( `survreg(Surv(tt)~group)` ) and Cox proportional hazard ( `coxph(Surv(tt)~group)` ) models, each in a side-by-side comparison with a likelihood ratio test comparing the fit of a three-parameter Gompertz-Makeham model (i.e. one set of IMR, RoA, and ER hazards shared between the control and treatment groups ) to a six-parameter one (i.e. potentially each of the hazards is different). The significance threshold was set at p<0.05.
 
+## Other notable design features
+
+R normally passes variables by value, not by reference although in recent versions lazy evaluation has made this less of a performance issue. Nevertheless, when this much data is being moved around, it is desirable to avoid copying entire data structures. Instead, an special type of object that in R is called an `environment` is passed around. It is a pointer to a container of arbitrarily large data structures and most of the important accessor and mutator methods for `lists` (R's workhorse data structure) also exist for `environment` s.
 
 # Results
 
