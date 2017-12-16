@@ -99,7 +99,11 @@ The other feature which seems to be lacking in the R packages we are aware of ar
 
 # Conclusion and future work
 
-## Retaining individual results for kriging
+## Targeting informative spaces
+
+For predictions, there is much room for imporvement beyond just better targeting of sampling ranges for radii. It should be possible to predict the detection rates for the points that are sampled on the Cartesian space in the outer loop, and target the ones that are closest to the target distance and yet have the largest prediction confidence intervals because they will be the most informative and impactful. This will likely involve Kriging or inverse weighted distance interpolation and that, in turn, requires retaining not only summaries and final estimates for each $\phi_{i1,\dots,in}$ but each of the indvidual points. With improved hardware and the use of performancre optimized `data.table` objects in R this is a likely next step.
+
+With a good way of predicting individual points, it will become possible for researchers to benefit from the existence of PowerTrip without necessarily themselves having to run an instance: the fitted model objects can be exported from an instance and used as a static prediction engine. The role of PowerTrip then becomes that of a factory that continues to generate updated and incrementally more accurate model objects.
 
 ## Age at recruitment, limited followup
 
@@ -109,4 +113,3 @@ The other feature which seems to be lacking in the R packages we are aware of ar
 
 ## Logistic-Makeham
 
-## Targeting informative spaces
