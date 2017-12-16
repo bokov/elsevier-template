@@ -18,4 +18,4 @@ texcount -sub=section -html $FILENAME.tex > $WORDCOUNT
 
 # Display document and wordcount
 #acroread $FILENAME.pdf
-firefox $WORDCOUNT
+#firefox $WORDCOUNT

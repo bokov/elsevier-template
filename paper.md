@@ -120,3 +120,8 @@ Though long-term survival studies are important, they are not representative of 
 ## Censoring and sample size as part of the parameter space
 
 Since our earlier publication [@bokov2017riskmodels] we have generalized our software to support an arbitrary number of model parameters. There is no particular reason that sample size and censoring rate cannot be added as fourth an fifth dimensions. For sample size in particular, this would mean that instead of separate runs for finding the "detection surface" for a few sample sizes and trying to guess about what happens inbetween, we would be able to run a 4- or 5-dimensional PowerTrip that is learning a little bit about every sample size all the time, and borrowing information from one to make predictions about others, just as in effect here we are borrowing information about the different parameters within the model to accelerate convergence.
+
+# Acknowledgments {-}
+
+This work was supported by NIH grants 1P30AG044271-01, 5T32AG021890, 2P30AG013319, and RC2AG036613.
+
