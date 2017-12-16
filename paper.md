@@ -91,13 +91,22 @@ The other feature which seems to be lacking in the R packages we are aware of ar
 
 # Results
 
-## How large must single-parameter difference be in order to be detectable?
-
-## How large are differences between real human populations?
-
 ## Is the Makeham parameter detectable and practically relevant?
 
-# Conclusion and future work
+We have found the same inverse relationship between RoA and IMR as in the mouse data [@bokov2017riskmodels]. However with these data there was hardly any separation between the Gompertz-Makeham model and the Weibull model in figures 4-6 below. The same pattern was observed for the Cox proportional hazard model (not shown).
+
+![Rate of hazard acceleration versus initial hazard.](roa_vs_imr.png){ width=60% }
+
+There is no *liear* relationshp between EH and RoA, i.e. perturbing the EH does not globally increase or decrease the ability to detect perturbations in the other parameters but there does appear to be a complex relationship in the density of points close to the reference point. Are currently running multiple simulations on the same points (instead of interpolating one per point) to determine whether this was a sampling artifact or a genuine behavior of this model.
+
+![Rate of hazard acceleration versus external hazard.](eh_vs_roa.png){ width=60% }
+
+![Initial mortality rate versus external hazard.](eh_vs_imr.png){ width=60% }
+
+
+
+# Future work
+
 
 ## Targeting informative spaces
 
