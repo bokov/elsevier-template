@@ -103,13 +103,12 @@ The other feature which seems to be lacking in the R packages we are aware of ar
 
 For predictions, there is much room for imporvement beyond just better targeting of sampling ranges for radii. It should be possible to predict the detection rates for the points that are sampled on the Cartesian space in the outer loop, and target the ones that are closest to the target distance and yet have the largest prediction confidence intervals because they will be the most informative and impactful. This will likely involve Kriging or inverse weighted distance interpolation and that, in turn, requires retaining not only summaries and final estimates for each $\phi_{i1,\dots,in}$ but each of the indvidual points. With improved hardware and the use of performancre optimized `data.table` objects in R this is a likely next step.
 
-With a good way of predicting individual points, it will become possible for researchers to benefit from the existence of PowerTrip without necessarily themselves having to run an instance: the fitted model objects can be exported from an instance and used as a static prediction engine. The role of PowerTrip then becomes that of a factory that continues to generate updated and incrementally more accurate model objects.
+With a good way of predicting individual points, it will become possible for researchers to benefit from the existence of PowerTrip without necessarily themselves having to run an instance: the fitted model objects can be exported from an instance and used as a static prediction engine. The role of PowerTrip then becomes that of a model factory that continues to generate and distribute updated and more accurate model objects.
 
-## Age at recruitment, limited followup
+## Modeling attrition and recruitment
 
-## Censoring
+Though long-term survival studies are important, they are not representative of the most common use cases in design of human trials. A more realistic model would be one where subjects who survive to a particular age-range are randomly enrolled into a cohort, some of them are randomly lost to follow-up, and the entire expriment ends after two or three years. Notwithstanding the fact that our implementations of these models do support right-side censoring, we have no idea what distributional properties will be of Gompertz or Gompertz-Makeham variables filtered through this additional selection/attrition process, and whether a tractable closed-form probability density function exists. But we will be able to directly perturb simulated populations that we have demonstrated are highly similar to real ones and product conditions more representative of clinical trials.
 
-## Sample size as a dimension
+## Censoring and sample size as part of the parameter space
 
-## Logistic-Makeham
-
+Since our earlier publication [@bokov2017riskmodels] we have generalized our software to support an arbitrary number of model parameters. There is no particular reason that sample size and censoring rate cannot be added as fourth an fifth dimensions. For sample size in particular, this would mean that instead of separate runs for finding the "detection surface" for a few sample sizes and trying to guess about what happens inbetween, we would be able to run a 4- or 5-dimensional PowerTrip that is learning a little bit about every sample size all the time, and borrowing information from one to make predictions about others, just as in effect here we are borrowing information about the different parameters within the model to accelerate convergence.
